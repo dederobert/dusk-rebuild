@@ -15,7 +15,7 @@ class Router implements MiddlewareInterface
         if ($route->isNamed()) {
             $this->namedRoutes[$route->name] = $route;
         } else {
-            throw new RouterException("The name's route must be defined");
+            throw new \Exception("The name's route must be defined");
         }
 
         return $this;
