@@ -32,7 +32,7 @@ class Route
         //Si l'url contient un paramètre variadique '...',
         //alors on vérifie que l'on est suffisament d'élémént dans la requête
         if (1 === preg_match('#\.\.\.$#', $this->path)) {
-            if (\count(explode('/', $url)) >= count($matches[0])) {
+            if (\count(explode('/', $url)) >= \count($matches[0])) {
                 $this->parse($request, $matches, $url);
 
                 return true;
@@ -41,7 +41,7 @@ class Route
             return false;
         }
 
-        if (count(explode('/', $url)) === count($matches[0])) {
+        if (\count(explode('/', $url)) === \count($matches[0])) {
             $request = $this->parse($request, $matches, $url);
 
             return true;
