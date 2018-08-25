@@ -6,7 +6,7 @@ php:
 
 install:
   - composer selfupdate
-  - composer installven
+  - composer install
 
 script:
   - ./vendor/bin/phpcs -s
