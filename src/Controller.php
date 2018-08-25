@@ -14,7 +14,7 @@ class Controller implements MiddlewareInterface
     {
         $query = $request->getQueryParams();
         $controllerName = '\\DuskPHP\\Core\\Controller\\' . ucfirst($query['controller']) . 'Controller';
-        $ret = call_user_func([$controllerName, $query['action']]);
+        $ret = \call_user_func([$controllerName, $query['action']]);
         $response = new Response();
         $response->getBody()->write($ret);
 

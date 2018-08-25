@@ -20,7 +20,7 @@ class I18n implements MiddlewareInterface
 
     public function pipe(string $lang): self
     {
-        if (!in_array($lang, $this->langs, true)) {
+        if (!\in_array($lang, $this->langs, true)) {
             $this->langs[] = $lang;
         }
 
@@ -31,7 +31,7 @@ class I18n implements MiddlewareInterface
     {
         $lang = explode('/', $request->getQueryParams()['url'])[0];
         $query = $request->getQueryParams();
-        if (!in_array($lang, $this->langs, true)) {
+        if (!\in_array($lang, $this->langs, true)) {
             $lang = $this->default_lang;
         } else {
             //Remove the lang params in url
